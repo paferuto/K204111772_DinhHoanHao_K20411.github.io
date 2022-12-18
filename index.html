@@ -16,9 +16,9 @@
             <div class="collapse navbar-collapse d-lg-flex justify-content-lg-center" id="navcol-1">
                 <ul class="navbar-nav">
                     <li class="nav-item" style="height: 40px;width: 200px;"><a class="nav-link active"
-                            href="#index.html">Trang chủ</a></li>
+                            href="index.html">Trang chủ</a></li>
                     <li class="nav-item" style="width: 200px;background: rgba(255,187,125,0);"><a class="nav-link"
-                            href="#https://is.uel.edu.vn/" style="width: 100%;">Liên Kết</a>
+                            href="https://is.uel.edu.vn/" style="width: 100%;">Liên Kết</a>
                         <ul class="list-unstyled">
                             <li><a class="menu" href="https://is.uel.edu.vn/">Khoa HTTT</a></li>
                         </ul>
@@ -51,35 +51,35 @@
                         <table class="table" id="thongtinTable">
                             <tr>
                                 <td>MSSV</td>
-                                <td id="txt_mssv"></td>
+                                <td><p id="txt_mssv"></p></td>
                             </tr>
                             <tr>
                                 <td>Họ và Tên</td>
-                                <td id="txt_name"></td>
+                                <td><p id="txt_name"></p></td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td id="txt_email"></td>
+                                <td><P id="txt_email"></P></td>
                             </tr>
                             <tr>
                                 <td>Số điện thoại</td>
-                                <td id="txt_phone"></td>
+                                <td><p id="txt_phone"></p></td>
                             </tr>
                             <tr>
                                 <td>Sở thích</td>
-                                <td id="txt_hobby"></td>
+                                <td><p id="txt_hobby"></p></td>
                             </tr>
                             <tr>
                                 <td>Giới tính</td>
-                                <td id="txt_gender"></td>
+                                <td><p id="txt_gender"></p></td>
                             </tr>
                             <tr>
                                 <td>Quê quán</td>
-                                <td id="txt_hometown"></td>
+                                <td><p id="txt_hometown"></p></td>
                             </tr>
                             <tr>
                                 <td>Nick_name</td>
-                                <td id="txt_nickname"></td>
+                                <td><p id="txt_nickname"></p></td>
                             </tr>
                         </table>
                     </div>
@@ -102,7 +102,7 @@
                 if (this.status == 200) {
                     xmlContent = this.responseXML;
                     let sinhvien = xmlContent.getElementsByTagName('sinhvien');
-                    for (let i = 0; i < sinhvien.length; i++) {
+                    i=0;
                         let mssv = sinhvien[i].getElementsByTagName('mssv')[0].textContent;
                         let name = sinhvien[i].getElementsByTagName('name')[0].textContent;
                         let email = sinhvien[i].getElementsByTagName('email')[0].textContent;
@@ -110,7 +110,7 @@
                         let hobby = sinhvien[i].getElementsByTagName('hobby')[0].textContent;
                         let gender = sinhvien[i].getElementsByTagName('gender')[0].textContent;
                         let hometown = sinhvien[i].getElementsByTagName('hometown')[0].textContent;
-                        let nickname = sinhvien[i].getElementsByTagName('nickname')[0].textContent;
+                        let nickname = sinhvien[i].getElementsByTagName('nick_name')[0].textContent;
 
                         document.getElementById('txt_mssv').innerHTML = mssv;
                         document.getElementById('txt_name').innerHTML = name;
@@ -123,7 +123,7 @@
                     }
                 }
             }
-        })
+        )
     </script>
 </body>
 
