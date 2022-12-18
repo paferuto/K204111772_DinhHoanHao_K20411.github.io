@@ -102,7 +102,7 @@
                 if (this.status == 200) {
                     xmlContent = this.responseXML;
                     let sinhvien = xmlContent.getElementsByTagName('sinhvien');
-                    for (let i = 0; i < sinhvien.length; i++) {
+                    i=0;
                         let mssv = sinhvien[i].getElementsByTagName('mssv')[0].textContent;
                         let name = sinhvien[i].getElementsByTagName('name')[0].textContent;
                         let email = sinhvien[i].getElementsByTagName('email')[0].textContent;
@@ -123,7 +123,7 @@
                     }
                 }
             }
-        })
+        )
     </script>
 </body>
 
