@@ -1,0 +1,27 @@
+a {
+  background-color: var(--bs-teal);
+  color: white;
+}
+
+ul {
+}
+
+li {
+  background: #ffbb7d;
+}
+
+a:hover {
+  background-color: lavender;
+  width: 100%;
+}
+
+a.menu {
+  background-color: inherit;
+  text-decoration: initial;
+  color: black;
+}
+
+li:hover {
+  background-color: lavender;
+}
+

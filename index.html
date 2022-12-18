@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>bailam</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md" style="padding: 0px;">
+        <div class="container-fluid">
+            <div></div>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-lg-center" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item" style="height: 40px;width: 200px;"><a class="nav-link active"
+                            href="#index.html">Trang chủ</a></li>
+                    <li class="nav-item" style="width: 200px;background: rgba(255,187,125,0);"><a class="nav-link"
+                            href="#https://is.uel.edu.vn/" style="width: 100%;">Liên Kết</a>
+                        <ul class="list-unstyled">
+                            <li><a class="menu" href="https://is.uel.edu.vn/">Khoa HTTT</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="width: 200px;"><a class="nav-link" href="#" style="width: 100%;">Góc học
+                            tập</a>
+                        <ul class="list-unstyled">
+                            <li><a class="menu" href="XMLvsDOM.html">XML &amp; DOM</a></li>
+                            <li><a class="menu" href="jsonObjectvsArray.html">Json Object &amp; Json Array</a></li>
+                            <li><a class="menu" href="FORMvsControl.html">FORM và Control FORM</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="background: rgba(255,187,125,0);width: 200px;"><a class="nav-link"
+                            href="register.html" style="width: 100%;">Đăng ký</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="flex-row" style="width: 100%;height: 600px;">
+        <div class="container" style="width: 100%;padding: 0px;margin: 0px;height: 600px;">
+            <div class="row" style="margin: 0px;width: 100%;height: auto;">
+                <div class="col-md-6 d-lg-flex justify-content-lg-center"
+                    style="width: 30%;padding: 0px;height: 600px;">
+                    <marquee direction="up">
+                        <img src="assets/img/avatar.jpg" style="height: 288px;width: 288px;">
+                    </marquee>
+                </div>
+                <div class="col-md-6 col-lg-8" style="width: 70%;padding-right: 0px;padding-left: 0px;">
+                    <div class="table-responsive">
+                        <table class="table" id="thongtinTable">
+                            <tr>
+                                <td>MSSV</td>
+                                <td id="txt_mssv"></td>
+                            </tr>
+                            <tr>
+                                <td>Họ và Tên</td>
+                                <td id="txt_name"></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td id="txt_email"></td>
+                            </tr>
+                            <tr>
+                                <td>Số điện thoại</td>
+                                <td id="txt_phone"></td>
+                            </tr>
+                            <tr>
+                                <td>Sở thích</td>
+                                <td id="txt_hobby"></td>
+                            </tr>
+                            <tr>
+                                <td>Giới tính</td>
+                                <td id="txt_gender"></td>
+                            </tr>
+                            <tr>
+                                <td>Quê quán</td>
+                                <td id="txt_hometown"></td>
+                            </tr>
+                            <tr>
+                                <td>Nick_name</td>
+                                <td id="txt_nickname"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p class="d-lg-flex justify-content-lg-end" id="today"></p>
+        </p>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        let xmlContent = '';
+        let svTable = document.getElementById('thongtinTable');
+        document.addEventListener('DOMContentLoaded', function () {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', 'K204111772.xml', true);
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    xmlContent = this.responseXML;
+                    let sinhvien = xmlContent.getElementsByTagName('sinhvien');
+                    for (let i = 0; i < sinhvien.length; i++) {
+                        let mssv = sinhvien[i].getElementsByTagName('mssv')[0].textContent;
+                        let name = sinhvien[i].getElementsByTagName('name')[0].textContent;
+                        let email = sinhvien[i].getElementsByTagName('email')[0].textContent;
+                        let phone = sinhvien[i].getElementsByTagName('phone')[0].textContent;
+                        let hobby = sinhvien[i].getElementsByTagName('hobby')[0].textContent;
+                        let gender = sinhvien[i].getElementsByTagName('gender')[0].textContent;
+                        let hometown = sinhvien[i].getElementsByTagName('hometown')[0].textContent;
+                        let nickname = sinhvien[i].getElementsByTagName('nickname')[0].textContent;
+
+                        document.getElementById('txt_mssv').innerHTML = mssv;
+                        document.getElementById('txt_name').innerHTML = name;
+                        document.getElementById('txt_email').innerHTML = email;
+                        document.getElementById('txt_phone').innerHTML = phone;
+                        document.getElementById('txt_hobby').innerHTML = hobby;
+                        document.getElementById('txt_gender').innerHTML = gender;
+                        document.getElementById('txt_hometown').innerHTML = hometown;
+                        document.getElementById('txt_nickname').innerHTML = nickname;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
